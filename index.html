@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aftab Gani — Portfolio</title>
+  <title>Aftab Gani Portfolio</title>
   <meta name="description" content="Aftab Gani — Tech enthusiast exploring the bridge between code, people, and creativity.">
 
   <!-- Google Fonts -->
@@ -259,16 +259,123 @@
       .chapter { padding: 40px 20px; }
       .academics-grid .card { width: 90%; }
     }
+    /* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 15, 23, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Simple logo – no background-clip */
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #06b6d4; /* accent color */
+  text-shadow: 0 0 6px rgba(6, 182, 212, 0.6);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: #e2e8f0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #06b6d4;
+}
+
+/* Mobile menu toggle */
+.menu-icon {
+  display: none;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 200px;
+    height: 100vh;
+    background: rgba(11, 15, 23, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    padding-top: 2rem;
+    transition: right 0.3s ease;
+  }
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* Add padding under navbar so content isn't hidden */
+body {
+  padding-top: 70px;
+}
+
   </style>
 </head>
 
 <body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">Aftab Gani</a>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#story">My Story</a></li>
+      <li><a href="#chapter1">Tech</a></li>
+      <li><a href="#chapter2">Beyond the Screen</a></li>
+      <li><a href="#chapter3">The Art of Words</a></li>
+            <li><a href="#chapter">Academics & Milestones
+</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
   <div class="container">
     <header class="hero" id="home">
       <div class="hero-card" data-aos="fade-up">
         <p class="tag">Hola, I’m</p>
         <h1 class="name"> Aftab Gani</h1>
-        <p class="tag">Tech enthusiast exploring the bridge between code, people, and creativity.</p>
+        <p class="tag">A tech enthusiast exploring the bridge between code, people, and creativity.</p>
         <div class="typewriter" id="typewriter"></div>
         <a class="btn" href="https://www.linkedin.com/in/aftabgani50/" target="_blank">
           <i class="fab fa-linkedin"></i> Connect on LinkedIn
@@ -293,7 +400,7 @@
     </header>
 
     <main>
-      <section class="chapter" data-aos="fade-up">
+      <section class="chapter" id =story data-aos="fade-up">
         <h2>My Story</h2>
         <p class="lead">
           My journey started in a classroom, where curiosity sparked my love for technology.  
@@ -301,31 +408,34 @@
         </p>
       </section>
 
-      <section class="chapter" data-aos="fade-up">
+      <section class="chapter" id=chapter1 data-aos="fade-up">
         <h2>Chapter 1 - An Encounter with Tech</h2>
         <p class="lead">Friends with: Python, Django & Research.</p>
         <div class="grid">
+        <div class="card"><h3>Point Cloud Research</h3><p class="tag">3D object classification.</p><div class="chips"><span class="chip">Deep Learning</span><span class="chip">Python</span></div></div>
           <div class="card"><h3>Virtual Book Hub</h3><p class="tag">Django-based library system.</p><div class="chips"><span class="chip">Django</span><span class="chip">Python</span></div></div>
           <div class="card"><h3>Budget Buddy</h3><p class="tag">Expense tracker with insights.</p><div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
-          <div class="card"><h3>Point Cloud Research</h3><p class="tag">3D object classification.</p><div class="chips"><span class="chip">Deep Learning</span><span class="chip">Python</span></div></div>
         </div>
       </section>
 
-      <section class="chapter" data-aos="fade-up">
+      <section class="chapter" id= chapter2 data-aos="fade-up">
         <h2>Chapter 2 - Beyond the Screen</h2>
-        <p class="lead">I’m addicted to making things happen — turning “we should do this” into “we did it.”</p>
+        <p class="lead">Somewhere between writing Python and decoding 3D data, I realized something wild -  
+          I’m addicted to <strong>making things happen</strong>.  
+          Turning “we should do this” into “we did it.”
+           From <strong>kickoff to closure</strong>, I thrive on communication, coordination, and clarity.  
+        </p>
         <div class="skills-grid">
-          <div class="skill-card">Communication</div>
-          <div class="skill-card">Project Execution</div>
-          <div class="skill-card">Coordination</div>
+        <div class="skill-card">Strong verbal and written communication</div>
+          <div class="skill-card"> Project planning and execution </div>
           <div class="skill-card">Tools: Python, SQL, MS Office</div>
         </div>
       </section>
 
-      <section class="chapter" data-aos="fade-up">
+      <section class="chapter" id=chapter3 data-aos="fade-up">
         <h2>Chapter 3 - The Art of Words</h2>
-        <p class="lead">I was that friend people called when words stopped making sense — “Fix my resume,” “Make this caption sound deep.”</p>
-        <p class="lead">Writing isn’t just words — it’s about making people <strong>feel</strong> something.</p>
+        <p class="lead">I was that friend people called when words stopped making sense - “Fix my resume,” “Make this instagram caption sound deep.”</p>
+        <p class="lead">For me, writing isn’t just words - it’s about making people <strong>feel</strong> something.</p>
         <div class="skills-grid">
           <div class="skill-card">Content Strategy</div>
           <div class="skill-card">Blog Writing</div>
@@ -333,9 +443,9 @@
         </div>
       </section>
 
-      <section class="chapter" data-aos="fade-up">
+      <section class="chapter" id=chapter4 data-aos="fade-up">
         <h2>Chapter 4 - Academics & Milestones</h2>
-        <p class="lead">Every chapter of my academic life had its own plot twist — long nights, stubborn code, and a lot of coffee.</p>
+        <p class="lead">Every chapter of my academic life had its own plot twist - long nights, migarine, and a lot of snacks.</p>
         <div class="academics-grid">
           <div class="card"><span class="badge">CGPA: 9.65</span><h3>MCA — MITS, Gwalior</h3><p class="tag">2023 — 2025</p></div>
           <div class="card"><span class="badge">CGPA: 9.17</span><h3>BCA (Hons.) — ITM University</h3><p class="tag">2020 — 2023</p></div>
